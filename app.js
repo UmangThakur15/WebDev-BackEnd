@@ -1,6 +1,7 @@
 import express from 'express';
 import session from "express-session";
-import cors from 'cors'
+import cors from 'cors';
+import AuthController from './users/auth-controller.js';
 const app = express();
 
 
@@ -21,5 +22,7 @@ app.use(
    
 app.use(express.json());
 const port = process.env.PORT || 4000;
+
+AuthController(app);
 
 app.listen(port);
